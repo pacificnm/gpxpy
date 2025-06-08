@@ -1,0 +1,16 @@
+{
+  "name": "GPX Py Dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.black-formatter",
+    "batisteo.vscode-django"
+  ],
+  "forwardPorts": [8000],
+  "postCreateCommand": "pip install -r requirements.txt"
+}
