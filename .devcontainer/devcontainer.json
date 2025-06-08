@@ -7,10 +7,13 @@
     "terminal.integrated.defaultProfile.linux": "bash"
   },
   "extensions": [
-    "ms-python.python",
-    "ms-python.black-formatter",
+    "ms-python.python@2024.6.0",
+    "ms-python.vscode-pylance@2024.6.0",
     "batisteo.vscode-django"
   ],
-  "forwardPorts": [8000],
-  "postCreateCommand": "pip install -r requirements.txt"
+  "forwardPorts": [
+    8000
+  ],
+  "postCreateCommand": "pip install -r requirements.txt",
+  "postCreateCommand": "./start.sh"
 }
