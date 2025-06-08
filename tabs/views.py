@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+# tabs/views.py
 def home(request):
-    return HttpResponse("Welcome to GPX Py")
+    return render(request, 'tabs/home.html')
