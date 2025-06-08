@@ -1,7 +1,8 @@
 {
   "name": "GPX Py Dev",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
   "settings": {
     "terminal.integrated.defaultProfile.linux": "bash"
@@ -13,7 +14,5 @@
   ],
   "forwardPorts": [
     8000
-  ],
-  "postCreateCommand": "pip install -r requirements.txt",
-  "postCreateCommand": "./start.sh"
+  ]
 }
