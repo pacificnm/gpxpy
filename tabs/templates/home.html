@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Home | GPX Py{% endblock %}
+
+{% block breadcrumb_items %}
+  <li class="breadcrumb-item active" aria-current="page">Home</li>
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Welcome to GPX Py</h1>
+
+  <h2>Newest Tracks</h2>
+  <div class="row">
+    {% for song in newest_songs %}
+      <div class="col-md-3 mb-4">
+        <div class="card h-100">
+          {% if song.artwork %}
+            <img src="{{ song.artwork.url }}" class="card-img-top" alt="{{ song.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ song.title }}</h5>
+            <p class="card-text">{{ song.album.artist.name }} – {{ song.album.title }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h2>Most Played</h2>
+  <div class="row">
+    {% for song in most_played_songs %}
+      <div class="col-md-3 mb-4">
+        <div class="card h-100">
+          {% if song.artwork %}
+            <img src="{{ song.artwork.url }}" class="card-img-top" alt="{{ song.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ song.title }}</h5>
+            <p class="card-text">{{ song.album.artist.name }} – {{ song.album.title }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+

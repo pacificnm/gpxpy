@@ -56,6 +56,7 @@ class Song(models.Model):
     genres = models.ManyToManyField(Genre, related_name='songs', blank=True)
     track_number = models.PositiveIntegerField(blank=True, null=True)
     gpx_synced = models.BooleanField(default=False)  # New sync flag
+    play_count = models.PositiveIntegerField(default=0)
     uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='uploaded_songs')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
