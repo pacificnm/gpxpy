@@ -55,6 +55,7 @@ class Song(models.Model):
     year = models.PositiveIntegerField(blank=True, null=True)
     genres = models.ManyToManyField(Genre, related_name='songs', blank=True)
     track_number = models.PositiveIntegerField(blank=True, null=True)
+    gpx_synced = models.BooleanField(default=False)  # New sync flag
     uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='uploaded_songs')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
@@ -66,6 +67,10 @@ class Song(models.Model):
         super().save(*args, **kwargs)
 
         if is_new and self.mp3_file:
+            # temp set flag to true
+            self.gpx_synced = True
+            
+            # Fetch meta
             meta = extract_id3_metadata(self.mp3_file.path)
 
             if meta:
