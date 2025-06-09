@@ -23,3 +23,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("tabs.urls")),  # 👈 Add this line to route the root URL to your main app
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
